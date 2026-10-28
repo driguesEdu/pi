@@ -1,0 +1,48 @@
+{
+  "version": 1,
+  "currentUserId": null,
+  "sports": [
+    {"nome":"Corrida","icon":"run","metric":"distancia"},
+    {"nome":"Caminhada","icon":"walk","metric":"distancia"},
+    {"nome":"Natação","icon":"swim","metric":"distancia"},
+    {"nome":"Ciclismo","icon":"bike","metric":"distancia"},
+    {"nome":"Musculação","icon":"weight","metric":""},
+    {"nome":"Futebol","icon":"ball","metric":"pontos"},
+    {"nome":"Basquete","icon":"ball","metric":"pontos"},
+    {"nome":"Vôlei","icon":"ball","metric":"pontos"},
+    {"nome":"Tênis","icon":"ball","metric":"pontos"},
+    {"nome":"Outros","icon":"mountain","metric":"outros"}
+  ],
+  "users": [
+    {"id":"maria","nome":"Maria Eduarda","username":"mariaeduarda","email":"mariaeduarda@fitsocial.test","bio":"Mais esporte, mais vida. Entre uma corrida e outra, colecionando bons momentos.","fotoPerfil":"img/maria.jpg","seguindo":["ana","gustavo","julia","pedro"],"esportes":["Corrida","Caminhada"],"demo":true},
+    {"id":"ana","nome":"Ana Silva","username":"ana.silva","email":"ana.silva@fitsocial.test","bio":"Um quilômetro de cada vez. Apaixonada por corrida e pelo nascer do sol.","fotoPerfil":"img/ana.jpg","seguindo":["maria","gustavo","camila"],"esportes":["Corrida","Caminhada"],"demo":true},
+    {"id":"gustavo","nome":"Gustavo Almeida","username":"gustavo.almeida","email":"gustavo.almeida@fitsocial.test","bio":"Duas rodas, muitas histórias. Vamos pedalar?","fotoPerfil":"img/gustavo.jpg","seguindo":["maria","ana","rafael"],"esportes":["Ciclismo"],"demo":true},
+    {"id":"julia","nome":"Júlia Faria","username":"julia.faria","email":"julia.faria@fitsocial.test","bio":"Dentro da água eu encontro meu ritmo.","fotoPerfil":"img/julia.jpg","seguindo":["maria","ana"],"esportes":["Natação","Musculação"],"demo":true},
+    {"id":"rafael","nome":"Rafael Souza","username":"rafael.souza","email":"rafael.souza@fitsocial.test","bio":"O jogo só termina quando o apito toca.","fotoPerfil":"img/rafael.jpg","seguindo":["gustavo","pedro","maria"],"esportes":["Basquete","Futebol"],"demo":true},
+    {"id":"pedro","nome":"Pedro Oliveira","username":"pedro.oliveira","email":"pedro.oliveira@fitsocial.test","bio":"Constância antes de intensidade. Treinando para ir além.","fotoPerfil":"img/pedro.jpg","seguindo":["maria","rafael"],"esportes":["Musculação","Corrida"],"demo":true},
+    {"id":"camila","nome":"Camila Santos","username":"camila.santos","email":"camila.santos@fitsocial.test","bio":"Trilhas, ar livre e uma boa companhia.","fotoPerfil":"img/camila.jpg","seguindo":["ana","julia","maria"],"esportes":["Caminhada","Vôlei"],"demo":true},
+    {"id":"lucas","nome":"Lucas Costa","username":"lucas.costa","email":"lucas.costa@fitsocial.test","bio":"Na quadra ou na estrada, o importante é se movimentar.","fotoPerfil":"img/lucas.jpg","seguindo":["ana","camila"],"esportes":["Tênis","Ciclismo"],"demo":true}
+  ],
+  "posts": [
+    {"id":"p1","userId":"ana","tipo":"atividade","texto":"O melhor jeito de começar o dia: tênis no pé e a cidade acordando. Hoje os 5 km vieram com uma vista especial!","esporte":"Corrida","imagens":["img/corrida.jpg"],"distanciaMetros":5000,"pontos":0,"localizacao":"Parque Ibirapuera, São Paulo","tempo":"00:32:10","createdAt":"2026-10-28T10:15:00Z","curtidas":["maria","gustavo","julia","pedro","camila"],"comentarios":[{"id":"c1","userId":"gustavo","texto":"Essa vista é boa demais! Bora marcar o próximo treino.","createdAt":"2026-10-28T11:00:00Z"},{"id":"c2","userId":"camila","texto":"Começando o dia do melhor jeito!","createdAt":"2026-10-28T11:10:00Z"}]},
+    {"id":"p2","userId":"gustavo","tipo":"atividade","texto":"Saindo da rotina e encontrando novos caminhos. Esse pedal valeu cada subida. Quem vem no próximo?","esporte":"Ciclismo","imagens":["img/ciclismo.jpg"],"distanciaMetros":32500,"pontos":0,"localizacao":"Estrada dos Romeiros, SP","tempo":"01:45:00","createdAt":"2026-10-28T09:30:00Z","curtidas":["ana","rafael","camila"],"comentarios":[{"id":"c3","userId":"rafael","texto":"No próximo eu vou junto!","createdAt":"2026-10-28T10:00:00Z"}]},
+    {"id":"p3","userId":"julia","tipo":"atividade","texto":"Treino de hoje concluído. Respira, mergulha e recomeça. Pequenos avanços também merecem ser celebrados.","esporte":"Natação","imagens":["img/natacao.jpg"],"distanciaMetros":1500,"pontos":0,"localizacao":"Centro Esportivo, São Paulo","tempo":"00:40:00","createdAt":"2026-10-27T20:00:00Z","curtidas":["maria","ana","pedro"],"comentarios":[]},
+    {"id":"p4","userId":"maria","tipo":"atividade","texto":"Mais uma manhã em movimento. Fui sem pressa e voltei cheia de energia!","esporte":"Corrida","imagens":["img/corrida.jpg"],"distanciaMetros":8400,"pontos":0,"localizacao":"Parque Villa-Lobos, São Paulo","tempo":"00:54:00","createdAt":"2026-10-27T10:00:00Z","curtidas":["ana","gustavo","julia"],"comentarios":[]},
+    {"id":"p5","userId":"rafael","tipo":"atividade","texto":"Uma boa partida fica ainda melhor com essa turma. Hoje foram 24 pontos e muita resenha depois do jogo.","esporte":"Basquete","imagens":["img/basquete.jpg"],"distanciaMetros":0,"pontos":24,"localizacao":"Parque da Juventude, São Paulo","tempo":"01:00:00","createdAt":"2026-10-27T00:00:00Z","curtidas":["maria","gustavo","pedro"],"comentarios":[]},
+    {"id":"p6","userId":"camila","tipo":"atividade","texto":"A trilha de hoje me lembrou por que eu amo sair de casa. Um passo de cada vez, até lá em cima.","esporte":"Caminhada","imagens":["img/caminhada.jpg"],"distanciaMetros":6200,"pontos":0,"localizacao":"Serra da Cantareira, SP","tempo":"02:10:00","createdAt":"2026-10-26T15:00:00Z","curtidas":["ana","julia","maria"],"comentarios":[]},
+    {"id":"p7","userId":"pedro","tipo":"atividade","texto":"Nem todo dia é sobre bater recorde. Às vezes, só aparecer e fazer o treino já é a vitória do dia.","esporte":"Musculação","imagens":["img/academia.jpg"],"distanciaMetros":0,"pontos":0,"localizacao":"Vila Mariana, São Paulo","tempo":"00:55:00","createdAt":"2026-10-26T11:00:00Z","curtidas":["maria","rafael"],"comentarios":[]},
+    {"id":"p8","userId":"maria","tipo":"atividade","texto":"Domingo é dia de reunir a turma na quadra. Foram 21 pontos, boas risadas e a promessa da revanche.","esporte":"Vôlei","imagens":[],"distanciaMetros":0,"pontos":21,"localizacao":"Centro Esportivo, São Paulo","tempo":"01:20:00","createdAt":"2026-10-25T16:00:00Z","curtidas":["camila","ana","pedro"],"comentarios":[]},
+    {"id":"p9","userId":"lucas","tipo":"atividade","texto":"Treino de saque concluído. A evolução aparece quando a gente mantém a constância.","esporte":"Tênis","imagens":[],"distanciaMetros":0,"pontos":18,"localizacao":"Clube de Tênis, Campinas","tempo":"00:50:00","createdAt":"2026-10-25T12:00:00Z","curtidas":["rafael","camila"],"comentarios":[]},
+    {"id":"p10","userId":"maria","tipo":"atividade","texto":"Caminhada leve para terminar a semana e colocar as ideias em dia.","esporte":"Caminhada","imagens":["img/caminhada.jpg"],"distanciaMetros":5000,"pontos":0,"localizacao":"Parque Ibirapuera, São Paulo","tempo":"00:58:00","createdAt":"2026-10-24T11:00:00Z","curtidas":["julia","ana"],"comentarios":[]},
+    {"id":"p11","userId":"ana","tipo":"atividade","texto":"Uma pausa no asfalto para respirar o ar da montanha. Dias assim recarregam tudo.","esporte":"Caminhada","imagens":["img/montanhas.jpg"],"distanciaMetros":9000,"pontos":0,"localizacao":"Serra da Mantiqueira, SP","tempo":"03:15:00","createdAt":"2026-10-23T12:00:00Z","curtidas":["maria","camila"],"comentarios":[]},
+    {"id":"p12","userId":"rafael","tipo":"atividade","texto":"Futebol de quinta com o pessoal. Dois gols para a conta e energia renovada.","esporte":"Futebol","imagens":[],"distanciaMetros":0,"pontos":2,"localizacao":"Quadra do bairro, São Paulo","tempo":"01:00:00","createdAt":"2026-10-22T23:00:00Z","curtidas":["gustavo","pedro"],"comentarios":[]}
+  ],
+  "messages": [
+    {"id":"m1","from":"ana","to":"maria","texto":"Oi, Maria! Vamos correr no parque amanhã?","createdAt":"2026-10-28T10:30:00Z"},
+    {"id":"m2","from":"maria","to":"ana","texto":"Vamos sim! Pode ser às 7h?","createdAt":"2026-10-28T10:32:00Z"},
+    {"id":"m3","from":"ana","to":"maria","texto":"Combinado! Te encontro na entrada.","createdAt":"2026-10-28T10:35:00Z"},
+    {"id":"m4","from":"gustavo","to":"maria","texto":"Bora pedalar no sábado? O trajeto está lindo!","createdAt":"2026-10-27T20:00:00Z"},
+    {"id":"m5","from":"julia","to":"maria","texto":"Você vai no treino de amanhã?","createdAt":"2026-10-27T16:00:00Z"},
+    {"id":"m6","from":"pedro","to":"maria","texto":"Mandou muito bem na corrida de hoje!","createdAt":"2026-10-26T12:00:00Z"}
+  ]
+}
