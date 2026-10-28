@@ -1,0 +1,1263 @@
+```html
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perfil - FitSocial</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background: #eef7f8;
+            color: #123b43;
+            min-height: 100vh;
+        }
+
+        /* =========================
+           MENU
+        ========================= */
+
+        .sidebar {
+            position: fixed;
+            left: 0;
+            top: 0;
+            width: 230px;
+            height: 100vh;
+            background: #073f49;
+            padding: 25px 15px;
+            z-index: 10;
+        }
+
+        .logo {
+            color: white;
+            text-align: center;
+            font-size: 27px;
+            font-weight: bold;
+            margin-bottom: 35px;
+        }
+
+        .menu {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .menu a {
+            text-decoration: none;
+            color: white;
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            padding: 13px;
+            border-radius: 12px;
+            transition: 0.2s;
+        }
+
+        .menu a:hover,
+        .menu a.ativo {
+            background: #12606b;
+        }
+
+        .menu img {
+            width: 27px;
+            height: 27px;
+            object-fit: contain;
+        }
+
+        /* =========================
+           CONTEÚDO
+        ========================= */
+
+        main {
+            margin-left: 230px;
+            padding: 35px;
+        }
+
+        .container {
+            max-width: 850px;
+            margin: auto;
+        }
+
+        /* =========================
+           CABEÇALHO DO PERFIL
+        ========================= */
+
+        .perfil-card {
+            background: white;
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.07);
+            margin-bottom: 25px;
+        }
+
+        .perfil-topo {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .foto-container {
+            position: relative;
+        }
+
+        .foto-perfil {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            object-fit: cover;
+            background: #12606b;
+        }
+
+        .botao-foto {
+            position: absolute;
+            right: 0;
+            bottom: 0;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background: #12606b;
+            color: white;
+            border: 3px solid white;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+        }
+
+        .botao-foto:hover {
+            background: #073f49;
+        }
+
+        #fotoInput {
+            display: none;
+        }
+
+        .informacoes h1 {
+            font-size: 27px;
+            margin-bottom: 6px;
+        }
+
+        .informacoes p {
+            color: #71878c;
+        }
+
+        /* =========================
+           BOTÃO CONVERSAR
+        ========================= */
+
+        .botao-conversa {
+            display: block;
+            width: 100%;
+            margin-top: 25px;
+            padding: 13px;
+            text-align: center;
+            text-decoration: none;
+            border-radius: 12px;
+            background: #12606b;
+            color: white;
+            font-weight: bold;
+            transition: 0.2s;
+        }
+
+        .botao-conversa:hover {
+            background: #073f49;
+        }
+
+        /* =========================
+           ESTATÍSTICAS
+        ========================= */
+
+        .estatisticas {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            margin-top: 30px;
+        }
+
+        .estatistica {
+            background: #f0f7f8;
+            border-radius: 15px;
+            padding: 18px;
+            text-align: center;
+        }
+
+        .estatistica strong {
+            display: block;
+            font-size: 24px;
+            margin-bottom: 5px;
+        }
+
+        .estatistica span {
+            color: #71878c;
+            font-size: 14px;
+        }
+
+        /* =========================
+           TÍTULOS
+        ========================= */
+
+        .titulo-secao {
+            margin: 25px 0 15px;
+            font-size: 22px;
+        }
+
+        /* =========================
+           POSTS
+        ========================= */
+
+        .posts {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .post {
+            background: white;
+            border-radius: 20px;
+            padding: 22px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.06);
+        }
+
+        .post-cabecalho {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 15px;
+        }
+
+        .post-avatar {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            object-fit: cover;
+            background: #12606b;
+        }
+
+        .post-nome {
+            font-weight: bold;
+        }
+
+        .post-data {
+            color: #819397;
+            font-size: 13px;
+            margin-top: 3px;
+        }
+
+        .post-texto {
+            line-height: 1.5;
+            margin-bottom: 15px;
+            white-space: pre-wrap;
+        }
+
+        .post-imagem {
+            width: 100%;
+            max-height: 500px;
+            object-fit: cover;
+            border-radius: 15px;
+            margin-top: 5px;
+        }
+
+        .post-localizacao {
+            margin-top: 15px;
+            padding: 10px 12px;
+            background: #f0f7f8;
+            border-radius: 10px;
+            font-size: 14px;
+            color: #587278;
+        }
+
+        /* =========================
+           ATIVIDADE
+        ========================= */
+
+        .atividade-post {
+            border: 2px solid #dceff1;
+        }
+
+        .atividade-titulo {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 18px;
+        }
+
+        .atividade-detalhes {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 12px;
+            margin-bottom: 18px;
+        }
+
+        .atividade-item {
+            background: #f0f7f8;
+            border-radius: 14px;
+            padding: 16px;
+            text-align: center;
+        }
+
+        .atividade-item strong {
+            display: block;
+            font-size: 20px;
+            margin-bottom: 5px;
+        }
+
+        .atividade-item span {
+            color: #71878c;
+            font-size: 13px;
+        }
+
+        .sem-posts {
+            background: white;
+            border-radius: 20px;
+            padding: 35px;
+            text-align: center;
+            color: #71878c;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.06);
+        }
+
+        /* =========================
+           LOGOUT
+        ========================= */
+
+        .logout {
+            margin-top: 30px;
+            width: 100%;
+            padding: 13px;
+            border: none;
+            border-radius: 12px;
+            background: #e8f1f2;
+            color: #123b43;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .logout:hover {
+            background: #d9e8ea;
+        }
+
+        /* =========================
+           RESPONSIVO
+        ========================= */
+
+        @media (max-width: 700px) {
+
+            .sidebar {
+                width: 75px;
+                padding: 20px 8px;
+            }
+
+            .logo {
+                font-size: 0;
+            }
+
+            .logo::after {
+                content: "FS";
+                font-size: 20px;
+            }
+
+            .menu a {
+                justify-content: center;
+            }
+
+            .menu span {
+                display: none;
+            }
+
+            main {
+                margin-left: 75px;
+                padding: 20px;
+            }
+
+            .estatisticas {
+                grid-template-columns: 1fr;
+            }
+
+            .atividade-detalhes {
+                grid-template-columns: 1fr;
+            }
+
+            .perfil-topo {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- =========================
+         MENU
+    ========================= -->
+
+    <aside class="sidebar">
+
+        <div class="logo">
+            FitSocial
+        </div>
+
+        <nav class="menu">
+
+            <a href="inicio.html">
+                <img src="img/inicio.png" alt="Início">
+                <span>Início</span>
+            </a>
+
+            <a href="explorar.html">
+                <img src="img/explorar.png" alt="Explorar">
+                <span>Explorar</span>
+            </a>
+
+            <a href="criar.html">
+                <img src="img/criar.png" alt="Criar">
+                <span>Criar</span>
+            </a>
+
+            <!-- ALTERADO PARA CONVERSA -->
+            <a href="conversa.html">
+                <img src="img/mensagens.png" alt="Mensagens">
+                <span>Mensagens</span>
+            </a>
+
+            <a href="perfil.html" class="ativo">
+                <img src="img/perfil.png" alt="Perfil">
+                <span>Perfil</span>
+            </a>
+
+        </nav>
+
+    </aside>
+
+
+    <!-- =========================
+         CONTEÚDO
+    ========================= -->
+
+    <main>
+
+        <div class="container">
+
+            <!-- PERFIL -->
+
+            <section class="perfil-card">
+
+                <div class="perfil-topo">
+
+                    <div class="foto-container">
+
+                        <img
+                            id="fotoPerfil"
+                            class="foto-perfil"
+                            src="https://via.placeholder.com/150"
+                            alt="Foto de perfil"
+                        >
+
+                        <label
+                            for="fotoInput"
+                            class="botao-foto"
+                        >
+                            +
+                        </label>
+
+                        <input
+                            type="file"
+                            id="fotoInput"
+                            accept="image/*"
+                        >
+
+                    </div>
+
+                    <div class="informacoes">
+
+                        <h1 id="nomePerfil">
+                            Usuário
+                        </h1>
+
+                        <p id="emailPerfil">
+                            email@email.com
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <!-- BOTÃO PARA CONVERSA -->
+
+                <a
+                    href="conversa.html"
+                    class="botao-conversa"
+                >
+                    💬 Mensagens
+                </a>
+
+
+                <!-- ESTATÍSTICAS -->
+
+                <div class="estatisticas">
+
+                    <div class="estatistica">
+
+                        <strong id="quantidadePosts">
+                            0
+                        </strong>
+
+                        <span>
+                            Publicações
+                        </span>
+
+                    </div>
+
+
+                    <div class="estatistica">
+
+                        <strong id="quantidadeTreinos">
+                            0
+                        </strong>
+
+                        <span>
+                            Treinos
+                        </span>
+
+                    </div>
+
+
+                    <div class="estatistica">
+
+                        <strong id="distanciaTotal">
+                            0 km
+                        </strong>
+
+                        <span>
+                            Distância
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <!-- SAIR -->
+
+                <button
+                    class="logout"
+                    onclick="sair()"
+                >
+                    Sair da conta
+                </button>
+
+            </section>
+
+
+            <!-- PUBLICAÇÕES -->
+
+            <h2 class="titulo-secao">
+                Minhas publicações
+            </h2>
+
+            <section
+                id="listaPosts"
+                class="posts"
+            ></section>
+
+        </div>
+
+    </main>
+
+
+    <script>
+
+        // ==========================================
+        // USUÁRIO LOGADO
+        // ==========================================
+
+        const usuario = JSON.parse(
+            sessionStorage.getItem("usuario")
+        );
+
+
+        if (!usuario) {
+
+            window.location.href = "login.html";
+
+        }
+
+
+        // ==========================================
+        // ELEMENTOS DO PERFIL
+        // ==========================================
+
+        const nomePerfil =
+            document.getElementById("nomePerfil");
+
+        const emailPerfil =
+            document.getElementById("emailPerfil");
+
+        const fotoPerfil =
+            document.getElementById("fotoPerfil");
+
+
+        if (usuario) {
+
+            nomePerfil.textContent =
+                usuario.nome ||
+                usuario.name ||
+                "Usuário";
+
+            emailPerfil.textContent =
+                usuario.email || "";
+
+            fotoPerfil.src =
+                usuario.fotoPerfil ||
+                "https://via.placeholder.com/150";
+
+        }
+
+
+        // ==========================================
+        // PEGAR POSTS
+        // ==========================================
+
+        function pegarPosts() {
+
+            const dados =
+                localStorage.getItem("fitSocialPosts");
+
+            if (!dados) {
+                return [];
+            }
+
+            try {
+
+                const posts = JSON.parse(dados);
+
+                if (Array.isArray(posts)) {
+                    return posts;
+                }
+
+                return [];
+
+            } catch (erro) {
+
+                console.error(
+                    "Erro ao ler posts:",
+                    erro
+                );
+
+                return [];
+            }
+        }
+
+
+        // ==========================================
+        // ESCAPAR HTML
+        // ==========================================
+
+        function escaparHTML(texto) {
+
+            if (
+                texto === null ||
+                texto === undefined
+            ) {
+                return "";
+            }
+
+            return String(texto)
+                .replace(/&/g, "&amp;")
+                .replace(/</g, "&lt;")
+                .replace(/>/g, "&gt;")
+                .replace(/"/g, "&quot;")
+                .replace(/'/g, "&#039;");
+        }
+
+
+        // ==========================================
+        // CARREGAR PERFIL
+        // ==========================================
+
+        function carregarPerfil() {
+
+            const posts = pegarPosts();
+
+
+            // Somente posts do usuário logado
+
+            const meusPosts =
+                posts.filter(function(post) {
+
+                    return (
+                        post.usuarioEmail ===
+                        usuario.email
+                    );
+
+                });
+
+
+            // ==========================================
+            // ATIVIDADES
+            // ==========================================
+
+            const atividades =
+                meusPosts.filter(function(post) {
+
+                    return (
+                        post.tipo ===
+                        "atividade"
+                    );
+
+                });
+
+
+            // ==========================================
+            // SOMAR KM
+            // ==========================================
+
+            const distancia =
+                atividades.reduce(
+                    function(total, atividade) {
+
+                        return (
+                            total +
+                            Number(atividade.km || 0)
+                        );
+
+                    },
+                    0
+                );
+
+
+            // ==========================================
+            // ESTATÍSTICAS
+            // ==========================================
+
+            document.getElementById(
+                "quantidadePosts"
+            ).textContent =
+                meusPosts.length;
+
+
+            document.getElementById(
+                "quantidadeTreinos"
+            ).textContent =
+                atividades.length;
+
+
+            document.getElementById(
+                "distanciaTotal"
+            ).textContent =
+                distancia.toFixed(2) +
+                " km";
+
+
+            // ==========================================
+            // LISTA
+            // ==========================================
+
+            const lista =
+                document.getElementById(
+                    "listaPosts"
+                );
+
+            lista.innerHTML = "";
+
+
+            if (meusPosts.length === 0) {
+
+                lista.innerHTML = `
+
+                    <div class="sem-posts">
+
+                        <h3>
+                            Você ainda não publicou nada.
+                        </h3>
+
+                        <p style="margin-top:10px;">
+
+                            Crie uma publicação ou registre
+                            uma atividade para ela aparecer aqui.
+
+                        </p>
+
+                    </div>
+
+                `;
+
+                return;
+            }
+
+
+            // ==========================================
+            // MOSTRAR POSTS
+            // ==========================================
+
+            meusPosts.forEach(function(post) {
+
+                const card =
+                    document.createElement("article");
+
+                card.className = "post";
+
+
+                // ==================================
+                // ATIVIDADE
+                // ==================================
+
+                if (post.tipo === "atividade") {
+
+                    card.classList.add(
+                        "atividade-post"
+                    );
+
+
+                    const esporte =
+                        escaparHTML(
+                            post.esporte ||
+                            "Atividade"
+                        );
+
+
+                    const km =
+                        Number(
+                            post.km || 0
+                        ).toFixed(2);
+
+
+                    const tempo =
+                        escaparHTML(
+                            post.tempo ||
+                            "00:00"
+                        );
+
+
+                    const descricao =
+                        escaparHTML(
+                            post.descricao ||
+                            ""
+                        );
+
+
+                    const localizacao =
+                        escaparHTML(
+                            post.localizacao ||
+                            ""
+                        );
+
+
+                    const fotoPost =
+                        post.usuarioFoto ||
+                        usuario.fotoPerfil ||
+                        "https://via.placeholder.com/100";
+
+
+                    card.innerHTML = `
+
+                        <div class="post-cabecalho">
+
+                            <img
+                                class="post-avatar"
+                                src="${fotoPost}"
+                                alt="Foto"
+                            >
+
+                            <div>
+
+                                <div class="post-nome">
+
+                                    ${escaparHTML(
+                                        post.usuarioNome ||
+                                        usuario.nome ||
+                                        "Usuário"
+                                    )}
+
+                                </div>
+
+                                <div class="post-data">
+
+                                    ${escaparHTML(
+                                        post.data || ""
+                                    )}
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="atividade-titulo">
+
+                            🏋️ Atividade registrada
+
+                        </div>
+
+
+                        <div class="atividade-detalhes">
+
+                            <div class="atividade-item">
+
+                                <strong>
+                                    ${km}
+                                </strong>
+
+                                <span>
+                                    KM
+                                </span>
+
+                            </div>
+
+
+                            <div class="atividade-item">
+
+                                <strong>
+                                    ${esporte}
+                                </strong>
+
+                                <span>
+                                    Esporte
+                                </span>
+
+                            </div>
+
+
+                            <div class="atividade-item">
+
+                                <strong>
+                                    ${tempo}
+                                </strong>
+
+                                <span>
+                                    Tempo
+                                </span>
+
+                            </div>
+
+                        </div>
+
+
+                        ${
+                            descricao
+                                ? `
+
+                                    <div class="post-texto">
+                                        ${descricao}
+                                    </div>
+
+                                `
+                                : ""
+                        }
+
+
+                        ${
+                            localizacao
+                                ? `
+
+                                    <div class="post-localizacao">
+
+                                        📍 ${localizacao}
+
+                                    </div>
+
+                                `
+                                : ""
+                        }
+
+                    `;
+
+                }
+
+
+                // ==================================
+                // PUBLICAÇÃO NORMAL
+                // ==================================
+
+                else {
+
+                    const texto =
+                        escaparHTML(
+                            post.texto ||
+                            ""
+                        );
+
+
+                    const localizacao =
+                        escaparHTML(
+                            post.localizacao ||
+                            ""
+                        );
+
+
+                    const fotoPost =
+                        post.usuarioFoto ||
+                        usuario.fotoPerfil ||
+                        "https://via.placeholder.com/100";
+
+
+                    card.innerHTML = `
+
+                        <div class="post-cabecalho">
+
+                            <img
+                                class="post-avatar"
+                                src="${fotoPost}"
+                                alt="Foto"
+                            >
+
+                            <div>
+
+                                <div class="post-nome">
+
+                                    ${escaparHTML(
+                                        post.usuarioNome ||
+                                        usuario.nome ||
+                                        "Usuário"
+                                    )}
+
+                                </div>
+
+                                <div class="post-data">
+
+                                    ${escaparHTML(
+                                        post.data || ""
+                                    )}
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+
+                        ${
+                            texto
+                                ? `
+
+                                    <div class="post-texto">
+                                        ${texto}
+                                    </div>
+
+                                `
+                                : ""
+                        }
+
+
+                        ${
+                            post.imagem
+                                ? `
+
+                                    <img
+                                        class="post-imagem"
+                                        src="${post.imagem}"
+                                        alt="Imagem da publicação"
+                                    >
+
+                                `
+                                : ""
+                        }
+
+
+                        ${
+                            localizacao
+                                ? `
+
+                                    <div class="post-localizacao">
+
+                                        📍 ${localizacao}
+
+                                    </div>
+
+                                `
+                                : ""
+                        }
+
+                    `;
+
+                }
+
+
+                lista.appendChild(card);
+
+            });
+
+        }
+
+
+        // ==========================================
+        // TROCAR FOTO DE PERFIL
+        // ==========================================
+
+        document
+            .getElementById("fotoInput")
+            .addEventListener(
+                "change",
+                function(event) {
+
+                    const arquivo =
+                        event.target.files[0];
+
+
+                    if (!arquivo) {
+                        return;
+                    }
+
+
+                    if (
+                        !arquivo.type.startsWith(
+                            "image/"
+                        )
+                    ) {
+
+                        alert(
+                            "Escolha uma imagem válida."
+                        );
+
+                        return;
+                    }
+
+
+                    const leitor =
+                        new FileReader();
+
+
+                    leitor.onload =
+                        function(e) {
+
+                            const imagem =
+                                e.target.result;
+
+
+                            // Atualiza na tela
+
+                            fotoPerfil.src =
+                                imagem;
+
+
+                            // Atualiza sessão
+
+                            usuario.fotoPerfil =
+                                imagem;
+
+
+                            sessionStorage.setItem(
+                                "usuario",
+                                JSON.stringify(usuario)
+                            );
+
+
+                            // Atualiza usuário permanente
+
+                            const usuarios =
+                                JSON.parse(
+                                    localStorage.getItem(
+                                        "fitSocialUsuarios"
+                                    )
+                                ) || [];
+
+
+                            const indice =
+                                usuarios.findIndex(
+                                    function(u) {
+
+                                        return (
+                                            u.email ===
+                                            usuario.email
+                                        );
+
+                                    }
+                                );
+
+
+                            if (indice !== -1) {
+
+                                usuarios[indice]
+                                    .fotoPerfil =
+                                    imagem;
+
+
+                                localStorage.setItem(
+                                    "fitSocialUsuarios",
+                                    JSON.stringify(
+                                        usuarios
+                                    )
+                                );
+
+                            }
+
+
+                            // Atualiza foto nos posts antigos
+
+                            const posts =
+                                pegarPosts();
+
+
+                            posts.forEach(
+                                function(post) {
+
+                                    if (
+                                        post.usuarioEmail ===
+                                        usuario.email
+                                    ) {
+
+                                        post.usuarioFoto =
+                                            imagem;
+
+                                    }
+
+                                }
+                            );
+
+
+                            localStorage.setItem(
+                                "fitSocialPosts",
+                                JSON.stringify(posts)
+                            );
+
+
+                            carregarPerfil();
+
+                        };
+
+
+                    leitor.readAsDataURL(
+                        arquivo
+                    );
+
+                }
+            );
+
+
+        // ==========================================
+        // SAIR
+        // ==========================================
+
+        function sair() {
+
+            sessionStorage.removeItem(
+                "usuario"
+            );
+
+            window.location.href =
+                "login.html";
+
+        }
+
+
+        // ==========================================
+        // INICIAR
+        // ==========================================
+
+        carregarPerfil();
+
+    </script>
+
+</body>
+
+</html>
+
