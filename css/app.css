@@ -351,3 +351,231 @@ dialog:open ~ .toast { z-index: 200; }
 .startup-error h1 { margin: 30px 0 15px; }
 .startup-error p { margin-bottom: 20px; }
 @media (prefers-reduced-motion: reduce) { *, *:before, *:after { scroll-behavior: auto !important; transition: none !important; animation: none !important; } }
+
+
+
+/* BARRA DE PROGRESSO DOS PONTOS */
+
+.points-progress-section {
+  margin: 16px 0;
+}
+
+.points-progress-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+  font-size: 14px;
+}
+
+.points-progress {
+  width: 100%;
+  height: 38px;
+  background: #8ba3c5;
+  border-radius: 30px;
+  overflow: hidden;
+  position: relative;
+}
+
+.points-progress-fill {
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg, #1c6eae, #36a9d5);
+  border-radius: 30px;
+  transition: width 0.5s ease;
+}
+
+.points-progress-label {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 13px;
+  font-weight: 600;
+  pointer-events: none;
+}
+
+
+/* ========================================
+   RANKING DE PONTOS - FITSOCIAL
+======================================== */
+
+.profile-ranking {
+  margin-top: 20px;
+  padding: 22px;
+  border: 1px solid #e5e9f2;
+  border-radius: 18px;
+  background: linear-gradient(145deg, #fffefa, #f0ecdd);
+  box-shadow: 0 8px 24px rgba(35, 53, 77, 0.06);
+  overflow: hidden;
+}
+
+.profile-ranking .section-heading {
+  margin-bottom: 8px;
+}
+
+.profile-ranking .section-heading h2 {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  color: #23354d;
+  font-size: 19px;
+  font-weight: 800;
+}
+
+.profile-ranking .section-heading h2 svg {
+  color: #b58a3a;
+  width: 22px;
+  height: 22px;
+}
+
+.profile-ranking > p {
+  margin: 0 0 18px;
+  color: #647084;
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.ranking-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.ranking-item {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  padding: 12px;
+  min-width: 0;
+  border: 1px solid #e5e9f2;
+  border-radius: 14px;
+  background: #fffefa;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.ranking-item:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 14px rgba(35, 53, 77, 0.08);
+}
+
+.ranking-position {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 29px;
+  font-size: 20px;
+  font-weight: 800;
+  color: #495b7d;
+}
+
+.ranking-item .avatar {
+  flex-shrink: 0;
+  width: 42px;
+  height: 42px;
+}
+
+.ranking-person {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 0;
+  color: #23354d;
+  text-decoration: none;
+}
+
+.ranking-person strong {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 5px;
+  font-size: 13px;
+  font-weight: 750;
+}
+
+.ranking-person strong small {
+  color: #647084;
+  font-size: 10px;
+  font-weight: 600;
+}
+
+.ranking-person span {
+  color: #8290a3;
+  font-size: 11px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.ranking-points {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  flex-shrink: 0;
+  gap: 2px;
+}
+
+.ranking-points strong {
+  color: #23354d;
+  font-size: 17px;
+  font-weight: 850;
+  font-variant-numeric: tabular-nums;
+}
+
+.ranking-points small {
+  color: #8290a3;
+  font-size: 10px;
+}
+
+/* Destaque para o primeiro lugar */
+.ranking-item:first-child {
+  border-color: #d9bd7b;
+  background: linear-gradient(110deg, #fff7df, #fffefa);
+}
+
+.ranking-item:first-child .ranking-position {
+  color: #a77a25;
+}
+
+/* Destaque para a posição do usuário */
+.ranking-item.is-me {
+  border: 1.5px solid #8ba3c5;
+  background: linear-gradient(110deg, #edf3fa, #fffefa);
+}
+
+.ranking-item.is-me .ranking-person strong {
+  color: #23354d;
+}
+
+.ranking-item.is-me .ranking-points strong {
+  color: #495b7d;
+}
+
+/* Responsividade */
+@media (max-width: 480px) {
+  .profile-ranking {
+    padding: 16px;
+  }
+
+  .ranking-item {
+    gap: 8px;
+    padding: 10px;
+  }
+
+  .ranking-position {
+    min-width: 25px;
+    font-size: 17px;
+  }
+
+  .ranking-item .avatar {
+    width: 36px;
+    height: 36px;
+  }
+
+  .ranking-points strong {
+    font-size: 15px;
+  }
+}
