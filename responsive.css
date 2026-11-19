@@ -1,0 +1,154 @@
+@media (min-width: 1600px) {
+  .main { padding-top: 42px; }
+  .feed-layout { grid-template-columns: minmax(0, 1fr) 310px; gap: 32px; }
+  .photo-button img { height: 365px; }
+}
+@media (max-width: 1200px) {
+  .sidebar { width: 210px; padding: 34px 20px 20px; }
+  .sidebar .brand { font-size: 33px; }
+  .brand-caption { font-size: 10px; }
+  .workspace { margin-left: 210px; }
+  .main { padding: 28px; }
+  .topbar { padding: 0 28px; }
+  .feed-layout { grid-template-columns: minmax(0, 1fr) 255px; gap: 20px; }
+  .side-panel { padding: 17px; }
+  .side-panel .person-info strong { font-size: 10px; }
+  .side-panel .person-info > span { font-size: 8px; }
+  .toast { left: calc(50% + 105px); }
+  .explore-layout { grid-template-columns: minmax(0, 1fr) 240px; gap: 20px; }
+  .chat-layout { grid-template-columns: 270px minmax(0, 1fr); }
+  .chat-contact .person-info > span { max-width: 130px; }
+}
+@media (max-width: 1020px) {
+  .feed-layout { grid-template-columns: minmax(0, 1fr); max-width: 650px; margin: auto; }
+  .feed-aside { display: none; }
+  .page-header .button { display: none; }
+  .profile-layout { grid-template-columns: minmax(0, 1fr); }
+  .profile-layout > aside { grid-row: 1; }
+  .profile-statistics { grid-row: 1; display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; }
+  .profile-statistics > h2 { grid-column: 1 / -1; margin-bottom: 0; }
+  .profile-statistics .stat-row { border-top: 0; padding: 5px 0; }
+  .profile-statistics .stat-row strong { font-size: 21px; }
+  .profile-statistics .stat-row .icon { width: 22px; height: 22px; }
+  .explore-layout { grid-template-columns: minmax(0, 1fr); }
+  .explore-aside { display: none; }
+  .auth-visual { padding: 35px; }
+  .auth-quote h1 { font-size: 38px; }
+  .auth-content { padding: 35px; }
+  .chat-layout { grid-template-columns: 235px minmax(0, 1fr); }
+  .chat-contact { padding: 15px 12px; }
+  .chat-contact .person-info > span { max-width: 105px; }
+  .chat-contact .person-info strong { font-size: 11px; }
+  .chat-contact > small { display: none; }
+}
+@media (max-width: 760px) {
+  body { font-size: 14px; }
+  .sidebar { display: none; }
+  .workspace { margin-left: 0; padding-bottom: 76px; }
+  .topbar { height: 65px; padding: 0 20px; position: sticky; top: 0; z-index: 15; background: #fffefaf5; backdrop-filter: blur(12px); }
+  .topbar-label, .today, .topbar-divider { display: none; }
+  .mobile-brand { display: inline-flex; font-size: 29px; }
+  .topbar-right { gap: 11px; }
+  .main { padding: 24px 18px 15px; min-height: calc(100dvh - 190px); }
+  .page-header { margin-bottom: 24px; }
+  .eyebrow { font-size: 9px; letter-spacing: 1.3px; margin-bottom: 8px; }
+  .page-title { font-size: 29px; }
+  .page-subtitle { margin-top: 7px; font-size: 11px; }
+  .mobile-nav { position: fixed; z-index: 30; bottom: 0; inset-inline: 0; display: flex; align-items: center; justify-content: space-around; gap: 3px; min-height: 70px; background: var(--surface); border-top: 1px solid var(--line); padding: 7px 8px max(7px, env(safe-area-inset-bottom)); }
+  .mobile-nav .nav-link { display: flex; flex-direction: column; justify-content: center; padding: 6px 8px; gap: 4px; font-size: 9px; font-weight: 500; background: none; border-radius: 5px; min-width: 54px; }
+  .mobile-nav .nav-link .icon { width: 22px; height: 22px; }
+  .mobile-nav .nav-link.active { color: var(--storm); }
+  .mobile-nav .nav-create .icon { background: var(--steel); color: white; padding: 7px; width: 40px; height: 40px; border-radius: 50%; }
+  .mobile-nav .nav-create { padding-top: 0; margin-top: -12px; gap: 2px; }
+  .composer-shortcut { padding: 13px; gap: 9px; margin-bottom: 20px; }
+  .composer-shortcut > a:nth-child(2) { padding: 10px; font-size: 11px; }
+  .feed-tabs { gap: 23px; margin-bottom: 18px; }
+  .tab { min-height: 40px; font-size: 12px; padding-bottom: 11px; }
+  .feed-count { font-size: 9px; }
+  .card { border-radius: 11px; }
+  .post-header { padding: 16px 16px 0; }
+  .person-info strong { font-size: 12px; }
+  .post-caption { margin: 13px 16px 15px; font-size: 12px; line-height: 1.75; }
+  .photo-button img { height: 300px; }
+  .activity-strip { padding: 12px 16px; gap: 8px; }
+  .activity-metrics { gap: 12px; font-size: 9px; }
+  .activity-metrics strong { font-size: 11px; }
+  .activity-sport { font-size: 10px; gap: 5px; }
+  .activity-sport .icon { width: 17px; height: 17px; }
+  .post-location { padding: 11px 16px 0; font-size: 9px; }
+  .post-actions { margin: 11px 16px 0; padding: 8px 0 11px; }
+  .post-action { min-height: 34px; }
+  .page-footer { font-size: 9px; flex-wrap: wrap; gap: 6px; padding: 12px 18px 18px; }
+  .toast { bottom: 86px; left: 50%; max-width: calc(100% - 30px); font-size: 11px; padding: 12px 15px; }
+  .auth-page .toast { bottom: 22px; }
+  .explore-search { margin-bottom: 20px; }
+  .search-field { min-height: 44px; }
+  .people-card { padding: 4px 15px; }
+  .people-card .user-row { padding: 16px 0; }
+  .people-card .person-info strong { font-size: 12px; }
+  .people-card .person-info > span { font-size: 10px; }
+  .sport-grid { gap: 9px; }
+  .sport-tile { padding: 18px 12px; }
+  .sport-tile strong { font-size: 12px; }
+  .sport-tile small { font-size: 9px; }
+  .compose-card { padding: 19px 16px; }
+  .upload-area { padding: 27px 20px; }
+  .form-row { gap: 12px; }
+  .field input, .field textarea, .field select, .search-field input, .chat-form input, .comment-form input { font-size: 16px; }
+  .field > input::placeholder, .field textarea::placeholder, .search-field input::placeholder, .chat-form input::placeholder, .comment-form input::placeholder { font-size: 12px; }
+  .form-actions > span { max-width: 150px; font-size: 9px; }
+  .upload-preview img { height: 100px; }
+  .profile-cover { height: 140px; }
+  .profile-details { padding: 0 20px 23px; }
+  .profile-name { font-size: 22px; }
+  .profile-counts { gap: 22px; }
+  .profile-statistics { padding: 19px; gap: 12px; }
+  .profile-statistics .stat-row { flex-direction: column; align-items: flex-start; gap: 8px; }
+  .profile-statistics .stat-row strong { font-size: 21px; }
+  .profile-statistics .stat-row small { font-size: 9px; }
+  .profile-layout { gap: 20px; }
+  .profile-grid { gap: 5px; }
+  .profile-grid .grid-label { font-size: 8px; left: 5px; bottom: 5px; padding: 3px 5px; }
+  .chat-layout { display: block; height: calc(100dvh - 245px); min-height: 390px; }
+  .chat-sidebar { height: 100%; border: 0; }
+  .chat-contact { padding: 18px; }
+  .chat-contact .person-info strong { font-size: 13px; }
+  .chat-contact .person-info > span { max-width: 220px; font-size: 11px; }
+  .chat-contact > small { display: block; }
+  .chat-pane { display: none; height: 100%; }
+  .chat-layout.has-active .chat-sidebar { display: none; }
+  .chat-layout.has-active .chat-pane { display: flex; }
+  body[data-page="chat"] .workspace { padding-bottom: 70px; }
+  body[data-page="chat"] .main { height: calc(100dvh - 135px); min-height: 0; display: flex; flex-direction: column; padding-bottom: 14px; }
+  body[data-page="chat"] .page-header { flex-shrink: 0; margin-bottom: 20px; }
+  body[data-page="chat"] .chat-layout { flex: 1; min-height: 0; height: auto; }
+  body[data-page="chat"] .page-footer { display: none; }
+  .chat-back { display: inline-flex; }
+  .chat-header { padding: 13px 12px; gap: 8px; }
+  .chat-messages { padding: 18px; }
+  .chat-form { padding: 12px; }
+  .bubble { font-size: 12px; max-width: 88%; }
+  dialog { padding: 20px; max-height: 85dvh; }
+  .modal-header h2 { font-size: 23px; }
+  .auth-layout { display: block; }
+  .auth-visual { display: none; }
+  .auth-content { min-height: 100dvh; padding: 40px 26px; }
+  .auth-form-wrap { max-width: 390px; }
+  .auth-form-wrap > .brand { font-size: 38px; margin-bottom: 40px; }
+  .auth-heading { font-size: 30px; }
+  .auth-form .field input { font-size: 16px; }
+}
+@media (max-width: 380px) {
+  .main { padding-inline: 12px; }
+  .photo-button img { height: 255px; }
+  .activity-metrics { gap: 8px; }
+  .activity-metrics .icon { display: none; }
+  .person-info > span { font-size: 9px; }
+  .follow-button.compact { padding: 6px 8px; font-size: 10px; }
+  .post-header .follow-button .icon { display: none; }
+  .profile-counts { gap: 15px; }
+  .profile-counts button, .profile-counts > span { font-size: 10px; }
+  .form-row { grid-template-columns: 1fr; gap: 0; }
+  .mobile-nav .nav-link { min-width: 48px; padding-inline: 4px; }
+  .sport-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
